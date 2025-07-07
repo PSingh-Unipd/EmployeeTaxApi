@@ -31,3 +31,7 @@ C:\Projects\tests\EmployeeApi\obj\Debug\net9.0\refint\EmployeeApi.dll
 C:\Projects\tests\EmployeeApi\obj\Debug\net9.0\EmployeeApi.pdb
 C:\Projects\tests\EmployeeApi\obj\Debug\net9.0\EmployeeApi.genruntimeconfig.cache
 C:\Projects\tests\EmployeeApi\obj\Debug\net9.0\ref\EmployeeApi.dll
+C:\Projects\tests\EmployeeApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\tests\EmployeeApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\tests\EmployeeApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\tests\EmployeeApi\obj\Debug\net9.0\EmployeeApi.sourcelink.json
