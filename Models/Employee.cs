@@ -6,7 +6,7 @@ namespace Api.Models
     {
         public Employee() { }
 
-        public Employee(string id, string firstName, string lastName, double grossAnnualSalary)
+        public Employee(string id, string firstName, string lastName, decimal grossAnnualSalary)
         {
             Id = id;
             FirstName = firstName;
@@ -21,7 +21,6 @@ namespace Api.Models
 
         public required string LastName { get; set; }
 
-        public double GrossAnnualSalary { get; set; }
+        public decimal GrossAnnualSalary { get; set; }
     }
-
 }

@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
 using Api.Models;
 using Api.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
@@ -11,7 +11,10 @@ namespace Api.Controllers
         private readonly ILogger<EmployeeController> _logger;
         private readonly IEmployeeService _employeeService;
 
-        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeService employeeService)
+        public EmployeeController(
+            ILogger<EmployeeController> logger,
+            IEmployeeService employeeService
+        )
         {
             _logger = logger;
             _employeeService = employeeService;
@@ -31,6 +34,24 @@ namespace Api.Controllers
                 return NotFound($"Employee with id {id} not found");
 
             return Ok(details);
+        }
+
+        [HttpPut("{id}/salary")]
+        public IActionResult UpdateSalary(string id, [FromBody] UpdateSalaryRequest request)
+        {
+            if (request == null || request.NewSalary <= 0)
+            {
+                return BadRequest("Invalid salary value.");
+            }
+
+            var updated = _employeeService.UpdateSalary(id, request.NewSalary);
+
+            if (!updated)
+            {
+                return NotFound($"Employee with id {id} not found.");
+            }
+
+            return NoContent();
         }
     }
 }

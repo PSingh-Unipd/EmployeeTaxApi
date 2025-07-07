@@ -6,5 +6,6 @@ namespace Api.Services
     {
         IEnumerable<Employee> GetAllEmployees();
         EmployeeDetails? GetEmployeeDetails(string id);
+        bool UpdateSalary(string id, decimal newSalary);
     }
 }

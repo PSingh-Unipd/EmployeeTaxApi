@@ -20,7 +20,13 @@ namespace Api.Repositories
 
         public Employee? GetById(string id)
         {
-            return _context.Employees.AsNoTracking().FirstOrDefault(e => e.Id == id);
+            return _context.Employees.FirstOrDefault(e => e.Id == id);
+        }
+
+        public void Update(Employee employee)
+        {
+            _context.Employees.Update(employee);
+            _context.SaveChanges();
         }
     }
 }

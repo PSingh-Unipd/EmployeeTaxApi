@@ -30,8 +30,8 @@ namespace EmployeeApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("GrossAnnualSalary")
-                        .HasColumnType("float");
+                    b.Property<decimal>("GrossAnnualSalary")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -46,140 +46,140 @@ namespace EmployeeApi.Migrations
                         {
                             Id = "1",
                             FirstName = "Alice",
-                            GrossAnnualSalary = 50000.0,
+                            GrossAnnualSalary = 50000m,
                             LastName = "Johnson"
                         },
                         new
                         {
                             Id = "2",
                             FirstName = "Bob",
-                            GrossAnnualSalary = 60000.0,
+                            GrossAnnualSalary = 60000m,
                             LastName = "Smith"
                         },
                         new
                         {
                             Id = "3",
                             FirstName = "Charlie",
-                            GrossAnnualSalary = 45000.0,
+                            GrossAnnualSalary = 45000m,
                             LastName = "Brown"
                         },
                         new
                         {
                             Id = "4",
                             FirstName = "Diana",
-                            GrossAnnualSalary = 70000.0,
+                            GrossAnnualSalary = 70000m,
                             LastName = "Reed"
                         },
                         new
                         {
                             Id = "5",
                             FirstName = "Ethan",
-                            GrossAnnualSalary = 55000.0,
+                            GrossAnnualSalary = 55000m,
                             LastName = "Cole"
                         },
                         new
                         {
                             Id = "6",
                             FirstName = "Fiona",
-                            GrossAnnualSalary = 80000.0,
+                            GrossAnnualSalary = 80000m,
                             LastName = "Black"
                         },
                         new
                         {
                             Id = "7",
                             FirstName = "George",
-                            GrossAnnualSalary = 48000.0,
+                            GrossAnnualSalary = 48000m,
                             LastName = "White"
                         },
                         new
                         {
                             Id = "8",
                             FirstName = "Hannah",
-                            GrossAnnualSalary = 75000.0,
+                            GrossAnnualSalary = 75000m,
                             LastName = "Green"
                         },
                         new
                         {
                             Id = "9",
                             FirstName = "Ian",
-                            GrossAnnualSalary = 52000.0,
+                            GrossAnnualSalary = 52000m,
                             LastName = "Blue"
                         },
                         new
                         {
                             Id = "10",
                             FirstName = "Julia",
-                            GrossAnnualSalary = 63000.0,
+                            GrossAnnualSalary = 63000m,
                             LastName = "Gray"
                         },
                         new
                         {
                             Id = "11",
                             FirstName = "Kevin",
-                            GrossAnnualSalary = 47000.0,
+                            GrossAnnualSalary = 47000m,
                             LastName = "Brown"
                         },
                         new
                         {
                             Id = "12",
                             FirstName = "Laura",
-                            GrossAnnualSalary = 67000.0,
+                            GrossAnnualSalary = 67000m,
                             LastName = "Wright"
                         },
                         new
                         {
                             Id = "13",
                             FirstName = "Michael",
-                            GrossAnnualSalary = 53000.0,
+                            GrossAnnualSalary = 53000m,
                             LastName = "King"
                         },
                         new
                         {
                             Id = "14",
                             FirstName = "Nina",
-                            GrossAnnualSalary = 49000.0,
+                            GrossAnnualSalary = 49000m,
                             LastName = "Young"
                         },
                         new
                         {
                             Id = "15",
                             FirstName = "Oscar",
-                            GrossAnnualSalary = 58000.0,
+                            GrossAnnualSalary = 58000m,
                             LastName = "Hall"
                         },
                         new
                         {
                             Id = "16",
                             FirstName = "Paula",
-                            GrossAnnualSalary = 76000.0,
+                            GrossAnnualSalary = 76000m,
                             LastName = "Scott"
                         },
                         new
                         {
                             Id = "17",
                             FirstName = "Quentin",
-                            GrossAnnualSalary = 62000.0,
+                            GrossAnnualSalary = 62000m,
                             LastName = "Moore"
                         },
                         new
                         {
                             Id = "18",
                             FirstName = "Rachel",
-                            GrossAnnualSalary = 54000.0,
+                            GrossAnnualSalary = 54000m,
                             LastName = "Clark"
                         },
                         new
                         {
                             Id = "19",
                             FirstName = "Steven",
-                            GrossAnnualSalary = 47000.0,
+                            GrossAnnualSalary = 47000m,
                             LastName = "Lewis"
                         },
                         new
                         {
                             Id = "20",
                             FirstName = "Tina",
-                            GrossAnnualSalary = 61000.0,
+                            GrossAnnualSalary = 61000m,
                             LastName = "Walker"
                         });
                 });

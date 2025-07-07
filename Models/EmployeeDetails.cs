@@ -2,12 +2,13 @@ namespace Api.Models
 {
     public class EmployeeDetails : Employee
     {
-        public EmployeeDetails() : base("", "", "", 0) { }
+        public EmployeeDetails()
+            : base("", "", "", 0) { }
 
-        public double GrossMonthlySalary { get; set; }
-        public double AnnualTaxPaid { get; set; }
-        public double MonthlyTaxPaid { get; set; }
-        public double NetAnnualSalary { get; set; }
-        public double NetMonthlySalary { get; set; }
+        public decimal GrossMonthlySalary { get; set; }
+        public decimal AnnualTaxPaid { get; set; }
+        public decimal MonthlyTaxPaid { get; set; }
+        public decimal NetAnnualSalary { get; set; }
+        public decimal NetMonthlySalary { get; set; }
     }
 }

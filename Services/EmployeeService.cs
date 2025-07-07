@@ -17,10 +17,10 @@ namespace Api.Services
         public EmployeeDetails? GetEmployeeDetails(string id)
         {
             var employee = _repository.GetById(id);
-            if (employee == null) return null;
+            if (employee == null)
+                return null;
 
-            var taxRate = 0.25;
-            var annualTaxPaid = employee.GrossAnnualSalary * taxRate;
+            var annualTaxPaid = CalculateUKIncomeTax(employee.GrossAnnualSalary);
             var netAnnualSalary = employee.GrossAnnualSalary - annualTaxPaid;
 
             return new EmployeeDetails
@@ -33,8 +33,39 @@ namespace Api.Services
                 AnnualTaxPaid = annualTaxPaid,
                 MonthlyTaxPaid = annualTaxPaid / 12,
                 NetAnnualSalary = netAnnualSalary,
-                NetMonthlySalary = netAnnualSalary / 12
+                NetMonthlySalary = netAnnualSalary / 12,
             };
+        }
+
+        public bool UpdateSalary(string id, decimal newSalary)
+        {
+            var employee = _repository.GetById(id);
+            if (employee == null)
+                return false;
+
+            employee.GrossAnnualSalary = newSalary;
+            _repository.Update(employee);
+
+            return true;
+        }
+
+        private decimal CalculateUKIncomeTax(decimal grossSalary)
+        {
+            decimal tax = 0m;
+
+            if (grossSalary > 5000)
+            {
+                var bandBIncome = Math.Min(grossSalary, 20000m) - 5000m;
+                tax += bandBIncome * 0.20m;
+            }
+
+            if (grossSalary > 20000)
+            {
+                var bandCIncome = grossSalary - 20000m;
+                tax += bandCIncome * 0.40m;
+            }
+
+            return tax;
         }
     }
 }

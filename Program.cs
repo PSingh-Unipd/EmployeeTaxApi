@@ -1,21 +1,21 @@
-using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
+using Api.Data;
 using Api.Repositories;
 using Api.Services;
-using Api.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add CORS policy for Angular frontend
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngularApp", policy =>
-    {
-        policy
-            .WithOrigins("http://localhost:4200")
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
+    options.AddPolicy(
+        "AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+        }
+    );
 });
 
 builder.Services.AddControllers();
@@ -27,7 +27,8 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddDbContext<EmployeeDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 var app = builder.Build();
 

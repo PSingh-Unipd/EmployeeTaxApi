@@ -6,5 +6,6 @@ namespace Api.Repositories
     {
         IEnumerable<Employee> GetAll();
         Employee? GetById(string id);
+        void Update(Employee employee);
     }
 }
