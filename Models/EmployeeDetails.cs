@@ -1,4 +1,3 @@
-// Models/EmployeeDetails.cs
 namespace Api.Models
 {
     public class EmployeeDetails : Employee

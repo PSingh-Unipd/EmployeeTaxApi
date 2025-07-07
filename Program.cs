@@ -1,6 +1,8 @@
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 using Api.Repositories;
 using Api.Services;
+using Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,19 +18,19 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Add services to the container
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Employee API", Version = "v1" });
 });
-builder.Services.AddSingleton<IEmployeeRepository, InMemoryEmployeeRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddDbContext<EmployeeDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Enable Swagger in development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -37,7 +39,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// 🔐 Apply the CORS policy
 app.UseCors("AllowAngularApp");
 
 app.MapControllers();
